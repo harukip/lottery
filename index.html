@@ -82,7 +82,7 @@
         .pure-button:focus {
             outline: 0
         }
-        .pure-button-hover, .pure-button:hover, .pure-button:focus {
+        .pure-button-hover, .pure-button:hover, .pure-button:focus, .winner-button:hover {
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#1a000000', GradientType=0);
             background-image: -webkit-gradient(linear,0 0,0 100%,from(transparent),color-stop(40%,rgba(0,0,0,.05)),to(rgba(0,0,0,.1)));
             background-image: -webkit-linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
@@ -95,6 +95,20 @@
             color: white;
             border-radius: 4px;
             text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+        .winner-button {
+            position: absolute;
+            font-family: inherit;
+            font-size: 100%;
+            padding: .5em 1em;
+            color: #444;
+            color: rgba(0,0,0,.8);
+            border: 0 rgba(0,0,0,0);
+            background-color: #E6E6E6;
+            text-decoration: none;
+            border-radius: 2px;
+            transform: translate(-50%, -50%);
+            margin-top: 30px;
         }
         .button-success {
             background: rgb(28, 184, 65);
@@ -130,18 +144,20 @@
             transition: all 1s;
         }
         .result-btn {
-            margin-top: 20px;
-            text-align: right;
-            margin-right: 30px;
+            /* margin-top: 50px; */
+            text-align: center;
+            /* margin-right: 100px; */
         }
     </style>
 </head>
 <body>
 <div id="main" class="wall">
     <div class="result-btn">
-       <a href="./result.html" target="_blank">獲獎名單</a>
+       <!-- <button class="winner-button" @click="toggle">Winner List</button> -->
+       <a class="winner-button" href="./result.html" target="_blank">獲獎名單</a>
     </div>
 </div>
+
 <div id="result" class="result">
 </div>
 <div id="tools" class="tools">
@@ -157,6 +173,7 @@
        :class="{'button-secondary': !running,
                'button-success': running}">{{running?'停!':'開始'}}</button>
     <button class="pure-button button-warning" @click="reset">重置</button>
+    
 </div>
 <script type="text/javascript" src="js/zepto.js"></script>
 <script type="text/javascript" src="js/vue.js"></script>
@@ -216,10 +233,10 @@
         new Vue({
             el: '#tools',
             data: {
-                selected: 30,
+                selected: 5,
                 running: false,
                 btns: [
-                    30, 10, 5, 2, 1
+                    10, 5, 1
                 ]
             },
             mounted () {
@@ -263,7 +280,10 @@
                         TagCanvas.SetSpeed('myCanvas', [5, 1]);
                     }
                     this.running = !this.running;
-                }
+                },
+                show_result: function(){
+                    console.log("q3");
+                },
             }
         });
     })();

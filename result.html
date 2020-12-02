@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/>
     <title>TAAI X ICPAI 抽獎</title>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/wall.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/wall.css"> -->
     <style type="text/css">
         .wall { 
             overflow: scroll;
@@ -29,7 +29,7 @@
         }
         .result-list {
             text-align: center;
-            color: #4de7c8;
+            color: black;
             font-size: 30px;
             line-height: 50px;
             margin-top: 50px;
@@ -38,20 +38,25 @@
         }
         .result-title {
             text-align: center;
-            color: #4de7c8;
+            color: black;
             font-size: 40px;
             margin-top: 100px;
             font-family: '幼圆';
         }
-
+        .white-wall {
+            /* background-color: white; */
+            
+        }
     </style>
 </head>
 <body>
 <div id="main" class="wall">
-    <div class="result-title">獲獎名單</div>
-    <div class="result-list" v-for="result in results">
-        <div v-for="item in result">
-            {{item}}
+    <div class="white-wall">
+        <div class="result-title">獲獎名單</div>
+        <div class="result-list" v-for="result in results">
+            <div v-for="item in result">
+                {{item}}
+            </div>
         </div>
     </div>
 </div>
