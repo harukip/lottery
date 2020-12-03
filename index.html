@@ -123,17 +123,20 @@
             background: rgb(66, 184, 221);
         }
         .tools {
+            display: inline-block;
             position: absolute;
             bottom: 20px;
             right: 20px;
             text-align: center;
         }
         .tools .pure-button {
-            display: inline-block;
             margin: 5px;
             padding: 10px 0;
             text-align: center;
             width:50px;
+        }
+        .pure-button {
+            display: none;
         }
         .mask {
             -webkit-filter:blur(5px);
@@ -217,6 +220,10 @@
 
                     });
                 });
+                var buttons = document.getElementsByClassName("pure-button");
+                for (var i=0;i<buttons.length;i+=1){
+                    buttons[i].style.display = 'inline-block';
+                }
                 start();
             });
         });
